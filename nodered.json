@@ -1,0 +1,571 @@
+[
+    {
+        "id": "tab-root",
+        "type": "tab",
+        "label": "Aquaculture Devices & Pools",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "inject-oxygen",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Oxygen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "func-oxygen"
+            ]
+        ]
+    },
+    {
+        "id": "func-oxygen",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Oxygen",
+        "func": "var min = 6;\nvar max = 9;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"8bdd0dd8-1e42-46e8-ad84-3029163c4f5b\",\n    name: \"oxygen\",\n    unit: \"mg/L\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('oxygen', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "debug-oxygen"
+            ]
+        ]
+    },
+    {
+        "id": "debug-oxygen",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Oxygen",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 640,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "inject-temperature",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Temperature",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "func-temperature"
+            ]
+        ]
+    },
+    {
+        "id": "func-temperature",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Temperature",
+        "func": "var min = 15;\nvar max = 30;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"c94f44ad-baab-4d9f-9383-f7f683d57434\",\n    name: \"temperature\",\n    unit: \"°C\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('temperature', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "debug-temperature"
+            ]
+        ]
+    },
+    {
+        "id": "debug-temperature",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Temperature",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "inject-ph",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Ph",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "func-ph"
+            ]
+        ]
+    },
+    {
+        "id": "func-ph",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Ph",
+        "func": "var min = 6.5;\nvar max = 8.5;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"f3ff6e5a-1ee9-4906-b404-101a549ec708\",\n    name: \"ph\",\n    unit: \"\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('ph', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "debug-ph"
+            ]
+        ]
+    },
+    {
+        "id": "debug-ph",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Ph",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 650,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "inject-conductivity",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Conductivity",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "func-conductivity"
+            ]
+        ]
+    },
+    {
+        "id": "func-conductivity",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Conductivity",
+        "func": "var min = 100;\nvar max = 500;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"9777d0d0-186f-4154-9d18-5b31116dfc56\",\n    name: \"conductivity\",\n    unit: \"µS/cm\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('conductivity', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "debug-conductivity"
+            ]
+        ]
+    },
+    {
+        "id": "debug-conductivity",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Conductivity",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "inject-turbidity",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Turbidity",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "func-turbidity"
+            ]
+        ]
+    },
+    {
+        "id": "func-turbidity",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Turbidity",
+        "func": "var min = 0;\nvar max = 100;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"8e46cc7d-e758-489b-91cd-e0af3c8b0207\",\n    name: \"turbidity\",\n    unit: \"NTU\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('turbidity', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "debug-turbidity"
+            ]
+        ]
+    },
+    {
+        "id": "debug-turbidity",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Turbidity",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "inject-salinity",
+        "type": "inject",
+        "z": "tab-root",
+        "name": "Inject Salinity",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "func-salinity"
+            ]
+        ]
+    },
+    {
+        "id": "func-salinity",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Generate Salinity",
+        "func": "var min = 0.5;\nvar max = 35;\nvar value = Math.random() * (max - min) + min;\nmsg.payload = {\n    id: \"a955fd48-f0e9-4b76-a0e9-b71b335f8c97\",\n    name: \"salinity\",\n    unit: \"ppt\",\n    value: Number(value.toFixed(2))\n};\nglobal.set('salinity', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "debug-salinity"
+            ]
+        ]
+    },
+    {
+        "id": "debug-salinity",
+        "type": "debug",
+        "z": "tab-root",
+        "name": "Debug Salinity",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 660,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "http-in-available-devices",
+        "type": "http in",
+        "z": "tab-root",
+        "name": "GET /available-devices",
+        "url": "/available-devices",
+        "method": "get",
+        "upload": false,
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "func-available-devices"
+            ]
+        ]
+    },
+    {
+        "id": "func-available-devices",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Return all devices",
+        "func": "msg.payload = [\n    global.get('oxygen'),\n    global.get('temperature'),\n    global.get('ph'),\n    global.get('conductivity'),\n    global.get('turbidity'),\n    global.get('salinity')\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "http-response-available-devices"
+            ]
+        ]
+    },
+    {
+        "id": "http-response-available-devices",
+        "type": "http response",
+        "z": "tab-root",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "http-in-device-detail",
+        "type": "http in",
+        "z": "tab-root",
+        "name": "GET /device-detail",
+        "url": "/device-detail",
+        "method": "get",
+        "upload": false,
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "func-device-detail"
+            ]
+        ]
+    },
+    {
+        "id": "func-device-detail",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Device detail by name",
+        "func": "var name = msg.req.query.name;\n\nif (!name) { \n    msg.statusCode = 400; \n    msg.payload = { error: 'Missing ?name parameter' }; \n    return msg; \n}var \n\ndata = global.get(name.toLowerCase());\n\nif (!data) { \n    msg.statusCode = 404; \n    msg.payload = { error: 'Device not found' }; \n    return msg; \n}\nmsg.payload = data;\n    \nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "http-response-device-detail"
+            ]
+        ]
+    },
+    {
+        "id": "http-response-device-detail",
+        "type": "http response",
+        "z": "tab-root",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "http-in-available-pools",
+        "type": "http in",
+        "z": "tab-root",
+        "name": "GET /available-pools",
+        "url": "/available-pools",
+        "method": "get",
+        "upload": false,
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "func-available-pools"
+            ]
+        ]
+    },
+    {
+        "id": "func-available-pools",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Available pools",
+        "func": "var pools = [\n    {\n        id: 'pool-uuid-1',\n        name: 'Main Pool',\n        deviceIds: [\n            '8bdd0dd8-1e42-46e8-ad84-3029163c4f5b',\n            'c94f44ad-baab-4d9f-9383-f7f683d57434'\n        ]\n    },\n    {\n        id: 'pool-uuid-2',\n        name: 'Secondary Pool',\n        deviceIds: [\n            'f3ff6e5a-1ee9-4906-b404-101a549ec708'\n        ]\n    }\n];\n\nglobal.set('pools', pools);\n\nmsg.payload = pools;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "http-response-available-pools"
+            ]
+        ]
+    },
+    {
+        "id": "http-response-available-pools",
+        "type": "http response",
+        "z": "tab-root",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "http-in-pool-detail",
+        "type": "http in",
+        "z": "tab-root",
+        "name": "GET /pool-detail",
+        "url": "/pool-detail",
+        "method": "get",
+        "upload": false,
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "func-pool-detail"
+            ]
+        ]
+    },
+    {
+        "id": "func-pool-detail",
+        "type": "function",
+        "z": "tab-root",
+        "name": "Pool detail",
+        "func": "var poolId = msg.req.query.poolId;\n\nif (!poolId) {\n    msg.statusCode = 400;\n    msg.payload = { error: 'Missing ?poolId parameter' };\n    return msg;\n}\n\nvar pools = global.get('pools') || [];\n\nvar pool = pools.find(p => p.id === poolId);\n\nif (!pool) {\n    msg.statusCode = 404;\n    msg.payload = { error: 'Pool not found' };\n    return msg;\n}\n\nvar allDevices = [\n    global.get('oxygen'),\n    global.get('temperature'),\n    global.get('ph'),\n    global.get('conductivity'),\n    global.get('turbidity'),\n    global.get('salinity')\n];\n\nvar attached = [];\n\npool.deviceIds.forEach(id => {\n    let d = allDevices.find(el => el && el.id === id);\n    if (d) attached.push(d);\n});\n\nmsg.payload = {\n    id: pool.id,\n    name: pool.name,\n    devices: attached\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 440,
+        "wires": [
+            [
+                "http-response-pool-detail"
+            ]
+        ]
+    },
+    {
+        "id": "http-response-pool-detail",
+        "type": "http response",
+        "z": "tab-root",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 440,
+        "wires": []
+    }
+]
